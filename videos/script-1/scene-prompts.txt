@@ -1,0 +1,30 @@
+CREDX VIDEO: Credit Karma Is Lying to You
+Character: Cartoon Elephant (friendly, professional, wearing glasses)
+Style: Creative cartoon, vibrant colors, educational
+
+SCENE PROMPTS FOR KREA:
+
+Scene 1 (0-3s):
+KREA PROMPT: Cartoon elephant character with glasses, looking shocked, pointing at phone showing credit score app, surprised expression, blue background, professional lighting
+ON-SCREEN TEXT: "Credit Karma is lying to you."
+
+Scene 2 (3-10s):
+KREA PROMPT: Cartoon elephant scratching head confused, showing phone with different credit scores, question marks floating around, concerned expression
+ON-SCREEN TEXT: "They say 720, but bank says 680?"
+
+Scene 3 (10-30s):
+KREA PROMPT: Cartoon elephant teacher with pointer, showing two credit score cards side by side, educational setting, one labeled VantageScore one labeled FICO
+ON-SCREEN TEXT: "Credit Karma uses VantageScore. Banks use FICO."
+
+Scene 4 (30-45s):
+KREA PROMPT: Cartoon elephant showing calculator, math equations floating, credit report papers, explaining with gestures
+ON-SCREEN TEXT: "20-50 point difference is normal."
+
+Scene 5 (45-55s):
+KREA PROMPT: Cartoon elephant looking serious, holding warning sign, red caution lights, important announcement pose
+ON-SCREEN TEXT: "Don't trust Credit Karma for mortgages!"
+
+Scene 6 (55-60s):
+KREA PROMPT: Cartoon elephant pointing down with smile, call to action pose, arrow pointing down, friendly encouraging expression
+ON-SCREEN TEXT: "Get my free guide - link in bio!"
+
