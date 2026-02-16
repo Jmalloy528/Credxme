@@ -37,7 +37,8 @@ export default function LeadForm({ onClose }: LeadFormProps) {
     setError('')
 
     try {
-      const response = await fetch('/api/leads', {
+      const API_URL = import.meta.env.VITE_API_URL || 'http://187.77.20.240:3001';
+      const response = await fetch(`${API_URL}/api/leads`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
