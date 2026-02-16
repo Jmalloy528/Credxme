@@ -6,7 +6,7 @@ require('dotenv').config();
 
 // HeyGen API Configuration
 const HEYGEN_API_KEY = process.env.HEYGEN_API_KEY;
-const HEYGEN_API_URL = 'https://api.heygen.com/v1';
+const HEYGEN_API_URL = 'https://api.heygen.com/v2';
 
 // Avatar and voice settings
 const AVATAR_CONFIG = {
