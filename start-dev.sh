@@ -28,7 +28,7 @@ cd "$CREDX_DIR"
 cleanup() {
     echo ""
     echo -e "${YELLOW}Shutting down...${NC}"
-    docker-compose down 2>/dev/null || true
+    docker compose down 2>/dev/null || true
     exit 0
 }
 
@@ -36,8 +36,8 @@ trap cleanup SIGINT SIGTERM
 
 # Step 1: Start PostgreSQL
 echo -e "${BLUE}📦 Step 1: Starting PostgreSQL...${NC}"
-if ! docker-compose ps | grep -q "credx-postgres"; then
-    docker-compose up -d
+if ! docker compose ps | grep -q "credx-postgres"; then
+    docker compose up -d
     echo -e "${GREEN}✓ PostgreSQL started${NC}"
     echo "   Waiting for database to be ready..."
     sleep 3

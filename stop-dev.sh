@@ -17,7 +17,7 @@ pkill -f "credx/backend" 2>/dev/null || true
 
 # Stop Docker containers
 echo "Stopping Docker containers..."
-cd "$CREDX_DIR" 2>/dev/null && docker-compose down 2>/dev/null || true
+cd "$CREDX_DIR" 2>/dev/null && docker compose down 2>/dev/null || true
 
 echo ""
 echo -e "${GREEN}✓ All CredX services stopped${NC}"
