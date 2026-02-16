@@ -19,9 +19,7 @@
     "googleapis": "^128.0.0",
     "node-cron": "^3.0.3",
     "node-telegram-bot-api": "^0.64.0",
-    "openai": "^4.20.0",
-    "instagram-private-api": "^1.45.3",
-    "tiktok-api": "^0.4.2"
+    "openai": "^4.20.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"

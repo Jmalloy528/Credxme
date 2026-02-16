@@ -1,0 +1,8 @@
+
+> credx-social-automation@1.0.0 telegram
+> node src/telegram-bot.js
+
+🤖 CredX Telegram Bot Started!
+Send /start to your bot to activate
+
+Bot is running... Press Ctrl+C to stop.

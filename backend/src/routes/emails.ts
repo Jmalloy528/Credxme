@@ -458,4 +458,3 @@ router.post('/start-masterclass', async (req, res) => {
 });
 
 export default router;
-export { EMAIL_TEMPLATES };
