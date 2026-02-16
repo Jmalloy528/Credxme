@@ -3,24 +3,44 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 
 import leadsRouter from './routes/leads';
+import emailsRouter from './routes/emails';
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// CORS configuration
+const corsOptions = {
+  origin: process.env.NODE_ENV === 'production' 
+    ? ['https://credxme.com', 'https://www.credxme.com']
+    : ['http://localhost:5173', 'http://localhost:3000'],
+  credentials: true
+};
+
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Routes
 app.use('/api/leads', leadsRouter);
+app.use('/api/emails', emailsRouter);
 
 // Health check
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
+// Root endpoint
+app.get('/', (req, res) => {
+  res.json({ 
+    name: 'CredX API',
+    version: '1.0.0',
+    status: 'operational'
+  });
+});
+
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`🚀 CredX API running on port ${PORT}`);
+  console.log(`📊 Environment: ${process.env.NODE_ENV || 'development'}`);
 });
