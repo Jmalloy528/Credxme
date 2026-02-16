@@ -10,12 +10,12 @@ export const EMAIL_TEMPLATES = {
     body: `
 Hi {{firstName}},
 
-Welcome to the CredX 5-Day Credit Masterclass! I'm excited to help you take control of your credit.
+Welcome to the CredX 5-Day Credit Masterclass! I'm James Malloy, and I'm excited to help you take control of your credit.
 
 **What happens next:**
 📧 Day 1 starts tomorrow morning
-📱 Join our private community: [LINK]
-📊 Download your Credit Action Worksheet: [LINK]
+📱 Join our private community: https://facebook.com/groups/credx  
+📊 Download your Credit Action Worksheet: https://credxme.com/worksheet
 
 **Quick wins while you wait:**
 1. Get your free credit reports at AnnualCreditReport.com
@@ -33,6 +33,8 @@ Let's do this!
 
 James Malloy
 Founder, CredX
+(866) 273-3963
+contact@credxme.com
 
 P.S. If you have questions, just reply to this email. I read every single one.
     `
