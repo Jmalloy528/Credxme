@@ -20,17 +20,36 @@ A full-stack credit repair management system built for The Malloy Group Financia
 - **E-Signatures**: DocuSign API (future)
 - **Credit Data**: Credit Score API (future)
 
-## Quick Start
+## Quick Start (One Command)
 
-### Prerequisites
+```bash
+cd ~/.openclaw/workspace/credx
+./start-dev.sh
+```
 
-- Node.js 18+
-- Docker (for PostgreSQL)
+This will:
+1. Start PostgreSQL in Docker
+2. Run database migrations
+3. Start the backend (http://localhost:3001)
+4. Start the frontend (http://localhost:5173)
+
+Then open http://localhost:5173 in your browser.
+
+### Other Commands
+
+```bash
+./status.sh    # Check if services are running
+./stop-dev.sh  # Stop all services
+```
+
+## Manual Setup
+
+If you prefer to start services separately:
 
 ### 1. Start the Database
 
 ```bash
-cd /root/.openclaw/workspace/credx
+cd ~/.openclaw/workspace/credx
 docker-compose up -d
 ```
 
@@ -43,7 +62,7 @@ npx prisma migrate dev --name init
 npm run dev
 ```
 
-The backend will start on http://localhost:3001
+Backend: http://localhost:3001
 
 ### 3. Set up the Frontend
 
@@ -53,7 +72,7 @@ npm install
 npm run dev
 ```
 
-The frontend will start on http://localhost:5173
+Frontend: http://localhost:5173
 
 ## Project Structure
 
@@ -73,6 +92,9 @@ credx/
 │   │   └── schema.prisma
 │   └── package.json
 ├── docker-compose.yml  # PostgreSQL container
+├── start-dev.sh        # Quick start script
+├── stop-dev.sh         # Stop all services
+├── status.sh           # Check service status
 └── README.md
 ```
 
