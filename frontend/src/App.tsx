@@ -142,6 +142,7 @@ function App() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <AffiliateCard
+              id="creditBuilderAccount"
               icon="🏦"
               title="Credit Builder Accounts"
               price="From $15/month"
@@ -156,6 +157,7 @@ function App() {
               badge="Most Popular"
             />
             <AffiliateCard
+              id="rentReporting"
               icon="🏠"
               title="Rent Reporting"
               price="$6.95/month"
@@ -170,6 +172,7 @@ function App() {
               badge="Fast Results"
             />
             <AffiliateCard
+              id="securedCard"
               icon="💳"
               title="Secured Credit Cards"
               price="$200 deposit"
@@ -184,6 +187,7 @@ function App() {
               badge="Best for Beginners"
             />
             <AffiliateCard
+              id="subscriptionBuilder"
               icon="📱"
               title="Subscription Credit Builder"
               price="FREE"
@@ -198,6 +202,7 @@ function App() {
               badge="No Cost"
             />
             <AffiliateCard
+              id="creditBuilderLoan"
               icon="💰"
               title="Credit Builder Loan"
               price="$10/month"
@@ -212,6 +217,7 @@ function App() {
               badge="Best Value"
             />
             <AffiliateCard
+              id="tradelines"
               icon="⚡"
               title="Tradeline Packages"
               price="From $299"

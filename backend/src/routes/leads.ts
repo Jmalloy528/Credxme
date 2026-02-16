@@ -6,7 +6,7 @@ const router = Router();
 // POST /api/leads - Create a new lead
 router.post('/', async (req, res) => {
   try {
-    const { firstName, lastName, email, phone, creditGoal } = req.body;
+    const { firstName, lastName, email, phone, creditGoal, source, type } = req.body;
 
     // Validation
     if (!firstName || !lastName || !email || !phone) {
@@ -56,14 +56,45 @@ router.post('/', async (req, res) => {
       }
     });
 
-    // Create audit log
+    // Schedule masterclass email sequence
+    const now = new Date();
+    const emailSchedule = [
+      { type: 'welcome', days: 0, subject: 'Welcome to the 5-Day Credit Masterclass!' },
+      { type: 'day1', days: 1, subject: 'Day 1: Understanding Your Credit Report' },
+      { type: 'day2', days: 2, subject: 'Day 2: Dispute Strategies That Work' },
+      { type: 'day3', days: 3, subject: 'Day 3: Building Positive Credit History' },
+      { type: 'day4', days: 4, subject: 'Day 4: Advanced Tactics for Deletions' },
+      { type: 'day5', days: 5, subject: 'Day 5: Maintaining Your New Score' },
+      { type: 'followUp1', days: 14, subject: 'How are your disputes going?' },
+      { type: 'followUp2', days: 60, subject: 'Your credit score update (60 days later)' }
+    ];
+
+    for (const item of emailSchedule) {
+      const scheduledDate = new Date(now);
+      scheduledDate.setDate(scheduledDate.getDate() + item.days);
+      
+      await prisma.auditLog.create({
+        data: {
+          userId: user.id,
+          action: 'MASTERCLASS_EMAIL_SCHEDULED',
+          entity: 'EmailSequence',
+          details: { 
+            emailType: item.type, 
+            scheduledFor: scheduledDate,
+            subject: item.subject
+          }
+        }
+      });
+    }
+
+    // Create audit log for lead creation
     await prisma.auditLog.create({
       data: {
         userId: user.id,
         action: 'LEAD_CREATED',
         entity: 'Client',
         entityId: user.clientProfile?.id,
-        details: { source: 'landing_page', creditGoal }
+        details: { source: source || 'landing_page', creditGoal, type: type || 'masterclass' }
       }
     });
 
@@ -75,7 +106,8 @@ router.post('/', async (req, res) => {
         email: user.email,
         firstName: user.firstName,
         lastName: user.lastName,
-        status: user.clientProfile?.status
+        status: user.clientProfile?.status,
+        emailSequenceScheduled: true
       }
     });
 
