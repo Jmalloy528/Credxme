@@ -1,4 +1,4 @@
-import { Router } from 'express';
+import { Router, Request, Response } from 'express';
 import prisma from '../utils/prisma';
 
 const router = Router();
@@ -372,7 +372,7 @@ James
 };
 
 // Schedule email to be sent
-router.post('/schedule', async (req, res) => {
+router.post('/schedule', async (req: Request, res: Response) => {
   try {
     const { userId, emailType, scheduledFor } = req.body;
     
@@ -398,7 +398,7 @@ router.post('/schedule', async (req, res) => {
 });
 
 // Trigger masterclass sequence for a new lead
-router.post('/start-masterclass', async (req, res) => {
+router.post('/start-masterclass', async (req: Request, res: Response) => {
   try {
     const { userId } = req.body;
     
