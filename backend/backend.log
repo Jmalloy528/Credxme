@@ -13,3 +13,55 @@
 [32m[nodemon] starting `ts-node src/index.ts`[39m
 🚀 CredX API running on port 3001
 📊 Environment: development
+prisma:query SELECT "public"."User"."id", "public"."User"."email", "public"."User"."passwordHash", "public"."User"."role"::text, "public"."User"."firstName", "public"."User"."lastName", "public"."User"."phone", "public"."User"."createdAt", "public"."User"."updatedAt" FROM "public"."User" WHERE ("public"."User"."email" = $1 AND 1=1) LIMIT $2 OFFSET $3
+prisma:query BEGIN
+prisma:query INSERT INTO "public"."User" ("id","email","passwordHash","role","firstName","lastName","phone","createdAt","updatedAt") VALUES ($1,$2,$3,CAST($4::text AS "public"."Role"),$5,$6,$7,$8,$9) RETURNING "public"."User"."id"
+prisma:query INSERT INTO "public"."Client" ("id","userId","status","serviceTier","creditGoal","setupFeePaid","createdAt","updatedAt") VALUES ($1,$2,CAST($3::text AS "public"."ClientStatus"),CAST($4::text AS "public"."ServiceTier"),$5,$6,$7,$8) RETURNING "public"."Client"."id"
+prisma:query SELECT "public"."User"."id", "public"."User"."email", "public"."User"."passwordHash", "public"."User"."role"::text, "public"."User"."firstName", "public"."User"."lastName", "public"."User"."phone", "p[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/index.ts`[39m
+Error: listen EADDRINUSE: address already in use :::3001
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at Function.listen (/root/.openclaw/workspace/credx/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/root/.openclaw/workspace/credx/backend/src/index.ts:45:5)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Module.m._compile (/root/.openclaw/workspace/credx/backend/node_modules/ts-node/src/index.ts:1618:23)
+    at node:internal/modules/cjs/loader:1839:10
+    at Object.require.extensions.<computed> [as .ts] (/root/.openclaw/workspace/credx/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1441:32) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3001
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+INSERT INTO "public"."AuditLog" ("id","userId","action","entity","details","createdAt") VALUES ($1,$2,$3,$4,$5,$6) RETURNING "public"."AuditLog"."id", "public"."AuditLog"."userId", "public"."AuditLog"."action", "public"."AuditLog"."entity", "public"."AuditLog"."entityId", "public"."AuditLog"."details", "public"."AuditLog"."ipAddress", "public"."AuditLog"."createdAt"
+prisma:query INSERT INTO "public"."AuditLog" ("id","userId","action","entity","details","createdAt") VALUES ($1,$2,$3,$4,$5,$6) RETURNING "public"."AuditLog"."id", "public"."AuditLog"."userId", "public"."AuditLog"."action", "public"."AuditLog"."entity", "public"."AuditLog"."entityId", "public"."AuditLog"."details", "public"."AuditLog"."ipAddress", "public"."AuditLog"."createdAt"
+prisma:query INSERT INTO "public"."AuditLog" ("id","userId","action","entity","details","createdAt") VALUES ($1,$2,$3,$4,$5,$6) RETURNING "public"."AuditLog"."id", "public"."AuditLog"."userId", "public"."AuditLog"."action", "public"."AuditLog"."entity", "public"."AuditLog"."entityId", "public"."AuditLog"."details", "public"."AuditLog"."ipAddress", "public"."AuditLog"."createdAt"
+prisma:query INSERT INTO "public"."AuditLog" ("id","userId","action","entity","details","createdAt") VALUES ($1,$2,$3,$4,$5,$6) RETURNING "public"."AuditLog"."id", "public"."AuditLog"."userId", "public"."AuditLog"."action", "public"."AuditLog"."entity", "public"."AuditLog"."entityId", "public"."AuditLog"."details", "public"."AuditLog"."ipAddress", "public"."AuditLog"."createdAt"
+prisma:query INSERT INTO "public"."AuditLog" ("id","userId","action","entity","details","createdAt") VALUES ($1,$2,$3,$4,$5,$6) RETURNING "public"."AuditLog"."id", "public"."AuditLog"."userId", "public"."AuditLog"."action", "public"."AuditLog"."entity", "public"."AuditLog"."entityId", "public"."AuditLog"."details", "public"."AuditLog"."ipAddress", "public"."AuditLog"."createdAt"
+prisma:query INSERT INTO "public"."AuditLog" ("id","userId","action","entity","details","createdAt") VALUES ($1,$2,$3,$4,$5,$6) RETURNING "public"."AuditLog"."id", "public"."AuditLog"."userId", "public"."AuditLog"."action", "public"."AuditLog"."entity", "public"."AuditLog"."entityId", "public"."AuditLog"."details", "public"."AuditLog"."ipAddress", "public"."AuditLog"."createdAt"
+prisma:query INSERT INTO "public"."AuditLog" ("id","userId","action","entity","details","createdAt") VALUES ($1,$2,$3,$4,$5,$6) RETURNING "public"."AuditLog"."id", "public"."AuditLog"."userId", "public"."AuditLog"."action", "public"."AuditLog"."entity", "public"."AuditLog"."entityId", "public"."AuditLog"."details", "public"."AuditLog"."ipAddress", "public"."AuditLog"."createdAt"
+prisma:query INSERT INTO "public"."AuditLog" ("id","userId","action","entity","entityId","details","createdAt") VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING "public"."AuditLog"."id", "public"."AuditLog"."userId", "public"."AuditLog"."action", "public"."AuditLog"."entity", "public"."AuditLog"."entityId", "public"."AuditLog"."details", "public"."AuditLog"."ipAddress", "public"."AuditLog"."createdAt"
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `ts-node src/index.ts`[39m
+Error: listen EADDRINUSE: address already in use :::3001
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at Function.listen (/root/.openclaw/workspace/credx/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/root/.openclaw/workspace/credx/backend/src/index.ts:45:5)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Module.m._compile (/root/.openclaw/workspace/credx/backend/node_modules/ts-node/src/index.ts:1618:23)
+    at node:internal/modules/cjs/loader:1839:10
+    at Object.require.extensions.<computed> [as .ts] (/root/.openclaw/workspace/credx/backend/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1441:32) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3001
+}
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
