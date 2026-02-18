@@ -37,7 +37,10 @@ export default function LeadForm({ onClose }: LeadFormProps) {
     setError('')
 
     try {
-      const API_URL = import.meta.env.VITE_API_URL || 'http://187.77.20.240:3001';
+      const API_URL = import.meta.env.VITE_API_URL || 'https://credx-1t7z.onrender.com';
+      
+      console.log('Submitting to:', `${API_URL}/api/leads`);
+      
       const response = await fetch(`${API_URL}/api/leads`, {
         method: 'POST',
         headers: {
@@ -50,13 +53,17 @@ export default function LeadForm({ onClose }: LeadFormProps) {
         }),
       })
 
+      const data = await response.json();
+      console.log('Response:', data);
+
       if (!response.ok) {
-        throw new Error('Failed to submit. Please try again.')
+        throw new Error(data.error || 'Failed to submit. Please try again.')
       }
 
       setIsSuccess(true)
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Something went wrong')
+      console.error('Submit error:', err);
+      setError(err instanceof Error ? err.message : 'Something went wrong. Please check your connection and try again.')
     } finally {
       setIsSubmitting(false)
     }
