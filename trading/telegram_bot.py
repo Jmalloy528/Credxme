@@ -16,15 +16,24 @@ import sys
 # Bot Configuration
 BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', 'YOUR_BOT_TOKEN_HERE')
 ALLOWED_USERS = os.getenv('ALLOWED_USER_IDS', '').split(',')  # Comma-separated user IDs
+ALLOWED_USERNAMES = os.getenv('ALLOWED_USERNAMES', '').split(',')  # Comma-separated usernames (without @)
 TRADING_DIR = '/root/.openclaw/workspace/credx/trading'
 
 # Command handlers
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Start command"""
     user_id = str(update.effective_user.id)
-    username = update.effective_user.username
+    username = update.effective_user.username or ""
     
-    if ALLOWED_USERS[0] and user_id not in ALLOWED_USERS:
+    # Check authorization - allow if no restrictions set, or if user matches
+    has_restrictions = (ALLOWED_USERS[0] or ALLOWED_USERNAMES[0])
+    is_authorized = (
+        not has_restrictions or 
+        user_id in ALLOWED_USERS or 
+        username in ALLOWED_USERNAMES
+    )
+    
+    if not is_authorized:
         await update.message.reply_text("⛔ Unauthorized access.")
         return
     
