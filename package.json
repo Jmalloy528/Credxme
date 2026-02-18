@@ -1,9 +1,14 @@
 {
   "name": "credx",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "build": "cd frontend && npm install && npm run build",
     "dev": "cd frontend && npm run dev"
   },
-  "dependencies": {}
+  "dependencies": {
+    "vite": "^7.3.1",
+    "typescript": "~5.9.3",
+    "@vitejs/plugin-react": "^5.1.1"
+  }
 }
